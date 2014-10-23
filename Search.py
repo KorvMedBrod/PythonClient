@@ -1,3 +1,4 @@
+from riak import RiakClient
 import riak
 
 
