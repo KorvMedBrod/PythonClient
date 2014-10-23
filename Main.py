@@ -8,3 +8,9 @@ print(client.get_buckets())
 print(client.bucket_type("tweets"))
 allKeysInTweets = client.get_keys(tweetBucket)
 print("Number of keys... ",len(allKeysInTweets))
+
+
+stream = client.stream_keys("tweets")
+for key_list in stream:
+     print("key_list;" , key_list)
+stream.close()
