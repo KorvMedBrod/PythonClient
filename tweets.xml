@@ -7,7 +7,7 @@
    <field name="lang"   type="string"  indexed="true" stored="true" />
    <field name="text"   type="string"  indexed="true" stored="true" />
    <field name="time_zone"   type="string"  indexed="true" stored="true" />
-
+   <dynamicField name="*" type="ignored"  />
 
    <!-- All of these fields are required by Riak Search -->
    <field name="_yz_id"   type="_yz_str" indexed="true" stored="true"  multiValued="false" required="true"/>
