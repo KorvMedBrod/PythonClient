@@ -37,6 +37,6 @@ def start():
 
        if inData == "GetTestData":
            twitterExample = open("Test/twitter.json", "r")
-           c.sendall(twitterExample) #returns the example file
+           c.sendall(twitterExample.read()) #returns the example file
 
        c.close()
