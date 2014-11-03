@@ -29,12 +29,12 @@ c, addr = s.accept()
 c.sendall('connected to server')
 
 
-accessLog.debug("Connected by", addr)
+accessLog.debug("Connected by %s", addr)
 
 while True:
    c, addr = s.accept()     # Establish connection with client.
    #print 'Got connection from', addr
    inData =  c.recv(1024)
-   accessLog.debug("inData is; ",inData)
+   accessLog.debug("inData is; %s",inData)
 
    c.close()                # Close the connection
