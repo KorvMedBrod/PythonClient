@@ -35,4 +35,8 @@ def start():
        inData =  c.recv(1024)
        accessLog.debug("inData is; %s",inData)
 
+       if inData == "GetTestData":
+           twitterExample = open("Test/twitter.json", "r")
+           c.sendall(twitterExample) #returns the example file
+
        c.close()
