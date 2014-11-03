@@ -6,15 +6,6 @@ import logging
 import logging.handlers
 
 
-def runServer():
-    while True:
-       c, addr = s.accept()     # Establish connection with client.
-       #print 'Got connection from', addr
-       inData =  c.recv(1024)
-       accessLog.debug("inData is; %s",inData)
-
-       c.close()                # Close the connection
-
 def start():
     LOG_FILENAME = 'logs/access.out'
 
@@ -38,4 +29,10 @@ def start():
 
     accessLog.debug("Connected by %s", addr)
 
-    runServer()
+    while True:
+       c, addr = s.accept()     # Establish connection with client.
+       #print 'Got connection from', addr
+       inData =  c.recv(1024)
+       accessLog.debug("inData is; %s",inData)
+
+       c.close()
