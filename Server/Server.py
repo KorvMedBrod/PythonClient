@@ -38,15 +38,13 @@ def start():
         accessLog.debug("inData is; %s",inData)
 
         if inData == "GetTestData":
-            accessLog.debug("Returning GetTestData")
+            accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + "Returning GetTestData")
             twitterExample = open("Test/twitter.json", "r")
-            returnValue  = str(twitterExample.read()) + str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-            c.sendall(returnValue) #returns the example file
+            c.sendall(twitterExample.read()) #returns the example file
 
         else:
-            accessLog.debug("Found Error")
-            returnValue ="Error " + str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-            c.sendall(returnValue)
+            accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + "Found Error")
+            c.sendall(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Error")
 
 
         c.close()
