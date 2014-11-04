@@ -43,7 +43,7 @@ def start():
             twitterExample = open("Test/twitter.json", "r")
             c.sendall(twitterExample.read()) #returns the example file
 
-        else:
+        #else:
             #If the message is not recognized noting is returned
             #accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Found Error")
             #c.sendall(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Error")
