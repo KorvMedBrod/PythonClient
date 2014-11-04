@@ -11,7 +11,7 @@ def start():
     LOG_FILENAME = "logs/access.out"
 
     # Set up a specific logger with our desired output level
-    accessLog = logging.getLogger('MyLogger')
+    accessLog = logging.getLogger("MyLogger")
     accessLog.setLevel(logging.DEBUG)
 
     # Add the log message handler to the logger
@@ -26,7 +26,8 @@ def start():
     s.listen(1)
     c, addr = s.accept()
 
-    c.sendall("connected to server)
+    #not senting any response if connected
+    #c.sendall("connected to server")
 
 
     while True:
@@ -43,8 +44,9 @@ def start():
             c.sendall(twitterExample.read()) #returns the example file
 
         else:
-            accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Found Error")
-            c.sendall(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Error")
+            #If the message is not recognized noting is returned
+            #accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Found Error")
+            #c.sendall(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Error")
 
 
         c.close()
