@@ -18,7 +18,7 @@ def start():
     accessLog.addHandler(handler)
 
     #handeling the socket
-    HOST = ''                 # Symbolic name meaning all available interfaces
+    HOST = ''                # Symbolic name meaning all available interfaces
     PORT = 8080              # Arbitrary non-privileged port
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((HOST, PORT))
@@ -32,17 +32,20 @@ def start():
         c, addr = s.accept()     # Establish connection with client.
         #print 'Got connection from', addr
         inData =  c.recv(1024)
-        
+
         accessLog.debug("Connected by %s", addr)
         accessLog.debug("inData is; %s",inData)
 
         if inData == "GetTestData":
+            accessLog.debug("Returning GetTestData")
             twitterExample = open("Test/twitter.json", "r")
             c.sendall(twitterExample.read()) #returns the example file
 
         elif inData == "":
+            accessLog.debug("Found No data")
             c.sendall("No data")
         else:
+            accessLog.debug("Found Error")
             c.sendall("Error")
 
 
