@@ -35,8 +35,8 @@ def start():
         #print 'Got connection from', addr
         inData =  c.recv(1024)
 
-        accessLog.debug("Connected by %s", addr)
-        accessLog.debug("inData is; %s",inData)
+        accessLog.debug("%s Connected by %s",str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) , addr)
+        accessLog.debug("%s inData is; %s",str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) , inData)
 
         if inData == "GetTestData":
             accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Returning GetTestData")
