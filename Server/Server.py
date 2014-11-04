@@ -41,9 +41,6 @@ def start():
             twitterExample = open("Test/twitter.json", "r")
             c.sendall(twitterExample.read()) #returns the example file
 
-        elif inData == "":
-            accessLog.debug("Found No data")
-            c.sendall("No data")
         else:
             accessLog.debug("Found Error")
             c.sendall("Error")
