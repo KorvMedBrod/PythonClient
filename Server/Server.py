@@ -8,7 +8,7 @@ import time
 from datetime import datetime
 
 def start():
-    LOG_FILENAME = 'logs/access.out'
+    LOG_FILENAME = "logs/access.out"
 
     # Set up a specific logger with our desired output level
     accessLog = logging.getLogger('MyLogger')
@@ -19,14 +19,14 @@ def start():
     accessLog.addHandler(handler)
 
     #handeling the socket
-    HOST = ''                # Symbolic name meaning all available interfaces
+    HOST = ""                # Symbolic name meaning all available interfaces
     PORT = 8080              # Arbitrary non-privileged port
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((HOST, PORT))
     s.listen(1)
     c, addr = s.accept()
 
-    c.sendall('connected to server')
+    c.sendall("connected to server)
 
 
     while True:
@@ -38,12 +38,12 @@ def start():
         accessLog.debug("inData is; %s",inData)
 
         if inData == "GetTestData":
-            accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + "Returning GetTestData")
+            accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Returning GetTestData")
             twitterExample = open("Test/twitter.json", "r")
             c.sendall(twitterExample.read()) #returns the example file
 
         else:
-            accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + "Found Error")
+            accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Found Error")
             c.sendall(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Error")
 
 
