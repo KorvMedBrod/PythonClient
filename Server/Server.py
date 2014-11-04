@@ -27,16 +27,23 @@ def start():
 
     c.sendall('connected to server')
 
-    accessLog.debug("Connected by %s", addr)
 
     while True:
-       c, addr = s.accept()     # Establish connection with client.
-       #print 'Got connection from', addr
-       inData =  c.recv(1024)
-       accessLog.debug("inData is; %s",inData)
+        c, addr = s.accept()     # Establish connection with client.
+        #print 'Got connection from', addr
+        inData =  c.recv(1024)
+        
+        accessLog.debug("Connected by %s", addr)
+        accessLog.debug("inData is; %s",inData)
 
-       if inData == "GetTestData":
-           twitterExample = open("Test/twitter.json", "r")
-           c.sendall(twitterExample.read()) #returns the example file
+        if inData == "GetTestData":
+            twitterExample = open("Test/twitter.json", "r")
+            c.sendall(twitterExample.read()) #returns the example file
 
-       c.close()
+        elif inData == "":
+            c.sendall("No data")
+        else:
+            c.sendall("Error")
+
+
+        c.close()
