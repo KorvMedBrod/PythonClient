@@ -4,7 +4,8 @@ from sys import exit
 import glob
 import logging
 import logging.handlers
-
+import time
+from datetime import datetime
 
 def start():
     LOG_FILENAME = 'logs/access.out'
@@ -39,11 +40,13 @@ def start():
         if inData == "GetTestData":
             accessLog.debug("Returning GetTestData")
             twitterExample = open("Test/twitter.json", "r")
-            c.sendall("%s %s",twitterExample.read(),datetime.now().strftime('%Y-%m-%d %H:%M:%S')) #returns the example file
+            returnValue  = twitterExample.read(),datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            c.sendall(returnValue) #returns the example file
 
         else:
             accessLog.debug("Found Error")
-            c.sendall("%s Error",datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+            returnValue = datetime.now().strftime('%Y-%m-%d %H:%M:%S'), "Error"
+            c.sendall(returnValue)
 
 
         c.close()
