@@ -40,12 +40,12 @@ def start():
         if inData == "GetTestData":
             accessLog.debug("Returning GetTestData")
             twitterExample = open("Test/twitter.json", "r")
-            returnValue  = twitterExample.read(),datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            returnValue  = str(twitterExample.read()) + str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
             c.sendall(returnValue) #returns the example file
 
         else:
             accessLog.debug("Found Error")
-            returnValue = datetime.now().strftime('%Y-%m-%d %H:%M:%S'), "Error"
+            returnValue ="Error " + str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
             c.sendall(returnValue)
 
 
