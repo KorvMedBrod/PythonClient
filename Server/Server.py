@@ -46,7 +46,7 @@ def start():
             c.sendall(twitterExample.read()) #returns the example file
 
         elif inData =="GetRandomTweet":
-            with Client.GetRandomTweet() as returnVal:
+            with ListKeys.GetRandomTweet() as returnVal:
                 c.sendall(returnVal)
 
 
