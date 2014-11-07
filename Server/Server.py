@@ -6,7 +6,7 @@ import logging
 import logging.handlers
 import time
 from datetime import datetime
-from Client import ListKeys
+import ListKeys
 
 def start():
     LOG_FILENAME = "logs/access.out"
