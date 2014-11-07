@@ -47,7 +47,7 @@ def start():
 
         elif inData =="GetRandomTweet":
             accessLog.debug(GetRandomTweet())
-            c.sendall(returnVal)
+            c.sendall(GetRandomTweet())
 
 
         #else:
