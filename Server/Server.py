@@ -7,6 +7,7 @@ import logging.handlers
 import time
 from datetime import datetime
 import ListKeys
+from ListKeys import GetRandomTweet
 
 def start():
     LOG_FILENAME = "logs/access.out"
