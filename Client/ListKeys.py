@@ -8,6 +8,6 @@ bucket = client.bucket_type('default').bucket('tweets')
 
 keys = bucket.get_keys()
 
-randm = random.randint(0len(keys))
+randm = random.randint(0,len(keys))
 
-print(randm)
+print(bucket.get(randm).encoded_data)
