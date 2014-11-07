@@ -1,5 +1,5 @@
 #!/usr/bin/python
 from Server import Server
-from Client import GetRandomTweet
+from Client import ListKeys
 
 Server.start()
