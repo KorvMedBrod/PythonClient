@@ -41,7 +41,6 @@ def start():
         if inData == "GetTestData":
             accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Returning GetTestData")
             twitterExample = open("Test/twitter.json", "r")
-            twitterExample = twitterExample.encode("utf-8")
             c.sendall(twitterExample.read()) #returns the example file
 
         #else:
