@@ -6,6 +6,7 @@ import logging
 import logging.handlers
 import time
 from datetime import datetime
+from Client import GetRandomTweet
 
 def start():
     LOG_FILENAME = "logs/access.out"
@@ -42,6 +43,11 @@ def start():
             accessLog.debug(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + " Returning GetTestData")
             twitterExample = open("Test/twitter.json", "r")
             c.sendall(twitterExample.read()) #returns the example file
+
+        elif inData =="GetRandomTweet":
+            with Client.GetRandomTweet() as returnVal:
+                c.sendall(returnVal)
+
 
         #else:
             #If the message is not recognized noting is returned
