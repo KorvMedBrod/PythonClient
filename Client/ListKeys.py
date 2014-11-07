@@ -10,4 +10,6 @@ keys = bucket.get_keys()
 
 randm = random.randint(0,len(keys))
 
-print(bucket.get(randm).encoded_data)
+singleKey = keys[randm]
+
+print(bucket.get(singleKey).encoded_data)
