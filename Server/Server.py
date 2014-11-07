@@ -47,6 +47,7 @@ def start():
 
         elif inData =="GetRandomTweet":
             with ListKeys.GetRandomTweet() as returnVal:
+                accessLog.debug(returnVal)
                 c.sendall(returnVal)
 
 
